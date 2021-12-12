@@ -2,7 +2,7 @@ import sys
 
 sys.path.append('..')
 
-from Tk2035 import MAIN as CANVAS
+from Tk2050 import MAIN as CANVAS
 
 del sys
 
