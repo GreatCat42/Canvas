@@ -8,6 +8,24 @@ class MAIN:
         this.MAIN = Canvas(this.ROOT, bg='#222222', width = 400, height = 400)
         this.MAIN.pack()
 
+        #The 'settings' dict, for storing color info
+        this.settings={
+            'bg':'#222222',
+            'stroke':'#22cc22',
+            'fill':'#228822'
+        }
+
+        this.vertices=[]
+
+    def set(this,key,value):
+        this.settings[key] = value
+
+    def stroke(this,color):
+        this.set('stroke',color)
+
+    def fill(this,color):
+        this.set('fill',color)
+
     def loop(this):
         #The main loop
         while True:
@@ -17,12 +35,42 @@ class MAIN:
 
     def line(this,x1,y1,x2,y2):
         #Draws a line
-        this.MAIN.create_line(x1,y1,x2,y2,fill='#22cc22')
+        this.MAIN.create_line(x1,y1,x2,y2,fill=this.settings['fill'])
+
+    def polygon(this,arr):
+        this.MAIN.create_polygon(arr,outline=this.settings['stroke'],fill=this.settings['fill'])
+
+    def vertex(this,x,y):
+        this.vertices.append((x,y))
+
+    def endshape(this):
+        polygon(this.vertices)
+        this.vertices=[]
 
     def delete(this,target):
+        #Deletes selected target
         this.MAIN.delete(target)
 
     def clear(this):
+        #Clears the canvas
         this.MAIN.delete(ALL)
+
+
+CANVAS=MAIN()
+
+def line(x1,y1,x2,y2):
+    CANVAS.line(x1,y1,x2,y2)
+
+def clear():
+    CANVAS.clear()
+
+def stroke(color):
+    CANVAS.stroke(color)
+
+def fill(color):
+    CANVAS.fill(color)
+
+# TODO: Vertex, Endshape
+
 
 #This program comes with a strange name... It doesn't matter.
