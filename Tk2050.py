@@ -44,7 +44,7 @@ class MAIN:
         this.vertices.append((x,y))
 
     def endshape(this):
-        polygon(this.vertices)
+        this.polygon(this.vertices)
         this.vertices=[]
 
     def delete(this,target):
@@ -69,6 +69,14 @@ def stroke(color):
 
 def fill(color):
     CANVAS.fill(color)
+
+def vertex(x,y):
+    CANVAS.vertex(x,y)
+
+def endshape():
+    CANVAS.endshape()
+
+
 
 # TODO: Vertex, Endshape
 
