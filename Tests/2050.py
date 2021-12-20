@@ -2,25 +2,21 @@ import sys
 
 sys.path.append('..')
 
-from Tk2050 import MAIN as CANVAS
+from Tk2050 import *
 
 del sys
 
 from math import sin, cos
 
-canvas = CANVAS()
-
 
 x=0
 
-def animation():
+def draw():
     global x
-    canvas.clear()
-    canvas.line(cos(x/30)*10+30,sin(x/30)*10+30,30,30)
-    x+=1
+    x+=0.3
+    clear()
+    line(cos(x/30)*10+30,sin(x/30)*10+30,30,30)
 
+from Tk2050 import loop
 
-
-canvas.loop_content=animation
-
-canvas.loop()
+loop()

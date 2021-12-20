@@ -31,19 +31,22 @@ class MAIN:
         while True:
             this.loop_content()
             this.ROOT.update()
-            sleep(0.05)
+            sleep(0.01)
 
     def line(this,x1,y1,x2,y2):
         #Draws a line
         this.MAIN.create_line(x1,y1,x2,y2,fill=this.settings['fill'])
 
     def polygon(this,arr):
+        #Draws a polygon with given vertices
         this.MAIN.create_polygon(arr,outline=this.settings['stroke'],fill=this.settings['fill'])
 
     def vertex(this,x,y):
+        #Sets a vertex
         this.vertices.append((x,y))
 
     def endshape(this):
+        #Ends a polygon
         this.polygon(this.vertices)
         this.vertices=[]
 
@@ -76,9 +79,29 @@ def vertex(x,y):
 def endshape():
     CANVAS.endshape()
 
+def raiser():
+    raise Exception('Import loop again, after defining the draw function!')
+
+def passer():
+    pass
 
 
-# TODO: Vertex, Endshape
+
+def loop():
+
+    try:
+        from __main__ import draw
+    except ImportError:
+        pass
+
+    try:
+        CANVAS.loop_content = draw
+    except NameError:
+        CANVAS.loop_content = raiser
+    CANVAS.loop()
+
+
+
 
 
 #This program comes with a strange name... It doesn't matter.
