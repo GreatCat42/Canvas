@@ -1,21 +1,11 @@
-0 Start with a parameter-less
-Demo Program
+5 Adjust Width/Height
 
-1 Create a Class in which
-shapes can be drawn and
-width/height can be adjusted,
-colors can be picked
+6 Open Multiple Windows / One window with Multiple Canvases
 
-2 Create a Class in which
-shapes can be drawn and
-width/height can be adjusted,
-colors can be picked,
-in a more 'friendly' way
+7 Develop Based on the Module
 
-3 Create a Module in which
-Even 'more friendly' ways
-are developed to draw on the Canvas,
-similar to ProcessingJS
+8 Improve Algorithm
 
-4 Develop further,
-Perhaps a function grapher in PIG.
+9 Make Color Opacity Adjustable
+
+10 Improve Color Mode from Hex to RGBA/HSBA
